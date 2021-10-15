@@ -23,6 +23,7 @@ This example shows how to:
 ## Preparation of your repository
 
 You must set the following Github secrets: 
+
 | Name                    | Description     |
 | :---------------------- | :---------- |
 | [SSH_SERVER_PRIVATE_KEY](https://www.redhat.com/sysadmin/passwordless-ssh) | the private key that is allowed to log into the remote server  |
