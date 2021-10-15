@@ -10,7 +10,7 @@ nginx is configured to be a reverse proxy for the Application Server, so that th
 
 
 ## Enterprise Service Stack
-This example shows how to :
+This example shows how to:
 - build a Java REST Server (quarkus)
 - create a docker image from it
 - push this image to the github container registry
