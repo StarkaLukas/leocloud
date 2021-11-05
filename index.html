@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="author" content="T. Stütz, C. Aberger">
+<title>LeoCloud</title>
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article paper container">
+<div id="header">
+<h1>LeoCloud</h1>
+<div class="details">
+<span id="author" class="author">T. Stütz, C. Aberger</span><br>
+<span id="email" class="email"><a href="mailto:c.aberger@htl-leonding.ac.at">c.aberger@htl-leonding.ac.at</a></span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2021-11-05</span>
+<br><span id="revremark">SCHILF @ HTL Leonding</span>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_cloud_computing_grundbegriffe">Cloud Computing Grundbegriffe</a></li>
+<li><a href="#_workshop">Workshop</a>
+<ul class="sectlevel2">
+<li><a href="#_die_kanonische_anwendung">die kanonische Anwendung</a></li>
+<li><a href="#_benötigte_software">benötigte Software</a></li>
+<li><a href="#_kubectl">kubectl</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_cloud_computing_grundbegriffe">Cloud Computing Grundbegriffe</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Container</strong>: Ein Container ist ein Paket mit dem auszuführenden Programm und allen seinen Abhängigkeiten, wie z.B. die Laufzeitumgebung, System-Bibliotheken&#8230;&#8203;, alles zusammengepackt in einer "Schachtel" &#8594; Ergebnis von <em>docker build</em>.</p>
+</li>
+<li>
+<p><strong>Kubernetes</strong>: Kubernetes (von griechisch κυβερνήτης, "Steuermann") ist ein Open-Source-System zur Automatisierung der Bereitstellung, Skalierung und Verwaltung von Container-Anwendungen.</p>
+</li>
+<li>
+<p><strong>Node</strong>: ein Computer</p>
+</li>
+<li>
+<p><strong>Cluster</strong>: Ein Kubernetes Cluster ist eine gewisse Anzahl von Nodes um Container - Anwendungen auszuführen.</p>
+</li>
+<li>
+<p><strong>Pod</strong>: Ein Pod ist eine logische Verpackungseinheit für einen Container, um diesen auf einem Cluster auszuführen.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock center text-center">
+<div class="content">
+<img src="images/kubernetescluster.png" alt="Kubernetes Cluster">
+</div>
+<div class="title">Figure 1. Ein Kubernetes Cluster</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Controller</strong>: Etwas, das den Ist- Zustand mit dem Soll-Zustand vergleicht und den Ist-Zustand ändert, bis er dem Soll-Zustand entspricht.</p>
+</li>
+<li>
+<p><strong>ReplicaSet</strong>: versucht immer eine stabile Menge von Pods am Laufen zu halten.</p>
+</li>
+<li>
+<p><strong>Deployment</strong>: stellt deklarative Updates für Pods und Replicasets zur Verfügung. Der <em>Controller</em> ändert den Status der Deployments, so dass dieser dem vorgegebenen Zustand des Deployments entspricht.</p>
+</li>
+<li>
+<p><strong>Service</strong>: Ein abstrakter Weg um eine Applikation, die auf einer Menge von Pods läuft, nach außen verfügbar zu machen.</p>
+</li>
+<li>
+<p><strong>Ingress</strong>: ein Controller, der ständig nachsieht, ob es aktuell neue Services gibt, die - falls ja - auf einem öffentlichen Port in das Internet freigegeben werden.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock center text-center">
+<div class="content">
+<img src="images/ingress.png" alt="Ingress">
+</div>
+<div class="title">Figure 2. Ingress</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workshop">Workshop</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die LeoCloud zum Anfassen und Mitarbeiten.</p>
+</div>
+<div class="sect2">
+<h3 id="_die_kanonische_anwendung">die kanonische Anwendung</h3>
+<div class="paragraph">
+<p>Die Anwendung <a href="https://github.com/caberger/leocloud">caberger/leocloud</a> ist ein Beispiel dafür, wie wir aus unserem Source Code automatisch alle benötigten Container erzeugen und diese anschliessend in die Cloud installieren.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_benötigte_software">benötigte Software</h3>
+<div class="paragraph">
+<p>Um mit diesem Beispiel zu arbeiten, benötigen wir für unser Betriebssystem folgende kostenlose Anwendungen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code</a></p>
+</li>
+<li>
+<p><a href="https://github.com/">Github Konto</a></p>
+</li>
+<li>
+<p><a href="https://cloud.htl-leonding.ac.at/">LeoCloud Konto</a></p>
+</li>
+<li>
+<p><a href="https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier">Oracle Cloud Konto (optional)</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Windows Benutzer benötigen noch folgende zusätzlichen Installationen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install">WSL2</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/windows/terminal/install">Windows Terminal</a></p>
+</li>
+<li>
+<p><a href="https://ubuntu.com/wsl">Ubuntu unter WSL2</a></p>
+</li>
+</ul>
+</div>
+<div class="imageblock center text-center">
+<div class="content">
+<img src="images/helmsman.jpg" alt="Kubernetes" width="320">
+</div>
+<div class="title">Figure 3. Kubernetes (von griechisch κυβερνήτης, "Steuermann")</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kubectl">kubectl</h3>
+<div class="paragraph">
+<p>Beim Debugging von Kubernetes hilft das <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Kubectl Cheat Sheet</a>.
+Beispiel: die Logs des init-scripts eines Pods ansehen mit:</p>
+</div>
+<div class="listingblock">
+<div class="title">kubectl log command</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"> kubectl logs &lt;podname&gt; -c &lt;init-container-name&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0<br>
+Last updated 2021-11-05 10:04:35 UTC
+</div>
+</div>
+</body>
+</html>
